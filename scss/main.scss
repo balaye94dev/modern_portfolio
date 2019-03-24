@@ -25,6 +25,7 @@ h3 {
     &.lg-heading {
         font-size: 6rem;
     }
+
     &.ms-heading {
         margin-bottom: 2rem;
         padding: 0.2rem 1rem;
@@ -49,11 +50,12 @@ header {
 
 main {
     padding: 4rem;
-   // height: 100%;
-    min-height: calc(100vh - 60);
+    // height: 100%;
+    min-height: calc(100vh - 60px);
 
     .icons {
         margin-top: 1rem;
+
         a {
             padding: 0.4rem;
 
@@ -66,6 +68,7 @@ main {
 
     &#home {
         overflow: hidden;
+
         h1 {
             margin-top: 20vh;
         }
@@ -75,40 +78,86 @@ main {
 .about-info {
     display: grid;
     grid-gap: 30px;
-    grid-template-areas: 
-    'bioimage bio bio'
-    'job1 job2 job3';
+    grid-template-areas:
+        'bioimage bio bio'
+        'job1 job2 job3';
     grid-template-columns: repeat(3, 1fr);
 
-.bio-image {
-    grid-area: bioimage;
-    margin: auto;
-    border-radius: 50%;
-    border: $secondary-color 3px solid;
+    .bio-image {
+        grid-area: bioimage;
+        margin: auto;
+        border-radius: 50%;
+        border: $secondary-color 3px solid;
+    }
+
+    .bio {
+        grid-area: bio;
+    }
+
+    .job-1 {
+        grid-area: job1;
+    }
+
+    .job-2 {
+        grid-area: job2;
+    }
+
+    .job-3 {
+        grid-area: job3;
+    }
+
+    .job {
+        background: lighten($primary-color, 5);
+        padding: 0.5rem;
+        border-bottom: $secondary-color 5px solid;
+    }
 }
 
-.bio {
-    grid-area: bio;
+// Work / Projects
+.projects {
+    display: grid;
+    grid-gap: 0.7rem;
+    grid-template-columns: repeat(3, 1fr);
+
+
+    img {
+        width: 100%;
+        border: 3px #fff solid;
+
+        &:hover {
+            opacity: 0.5;
+            border-color: $secondary-color;
+            @include easeOut;
+        }
+    }
 }
 
-.job-1 {
-    grid-area: job1;
+// Button Styles 
+.btn {
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 0;
+    margin-bottom: 0.3rem;
+
+    &:hover {
+        background: $secondary-color;
+        color: set-text-color($secondary-color);
+
+    }
 }
 
-.job-2 {
-    grid-area: job2;
+.btn-dark {
+    @extend .btn;
+    background: darken($primary-color, 50);
+    color: #fff;
 }
 
-.job-3 {
-    grid-area: job3;
+.btn-light {
+    @extend .btn;
+    background: lighten($primary-color, 50);
+    color: #333;
 }
 
-.job {
-    background: lighten($primary-color, 5);
-    padding: 0.5rem;
-    border-bottom: $secondary-color 5px solid;
-}
-}
 
 #main-footer {
     text-align: center;
