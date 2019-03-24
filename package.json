@@ -2,7 +2,7 @@
   "name": "modern_portfolio",
   "version": "1.0.0",
   "description": "My Moderne responsive portfolio",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "sass": "node-sass -w scss/ -o dist/css/ --recursive"
   },
