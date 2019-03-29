@@ -124,6 +124,13 @@ h3 {
   h3.sm-heading {
     margin-bottom: 0.5rem;
     padding: 0.2rem 0.2rem; }
+  h1.welcome-heading,
+  h2.welcome-heading,
+  h3.welcome-heading {
+    margin-top: 2rem;
+    font-size: 2rem;
+    padding: 0.2rem 0.2rem;
+    color: #1EA1F2; }
 
 a {
   color: #fff;

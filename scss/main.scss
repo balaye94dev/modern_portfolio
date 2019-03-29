@@ -31,6 +31,12 @@ h3 {
         padding: 0.2rem 0.2rem;
     //  background: rgba(lighten($primary-color, 2), $background-opacity);
     }
+    &.welcome-heading {
+        margin-top: 2rem;
+        font-size: 2rem;
+        padding: 0.2rem 0.2rem;
+        color: $secondary-color;
+    }
 }
 
 a {
