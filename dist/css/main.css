@@ -270,7 +270,7 @@ main {
     .menu-branding .portrait {
       width: 150px;
       height: 150px;
-      background: url("../img/layefatimasmall.jpg");
+      background: url("../img/photo.jpg");
       border-radius: 50%; }
   .about-info {
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
