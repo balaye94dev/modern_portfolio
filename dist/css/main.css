@@ -268,9 +268,9 @@ main {
     height: 25vh;
     transform: translate3d(100%, 0, 0); }
     .menu-branding .portrait {
-      width: 150px;
-      height: 150px;
-      background: url("../img/photo.jpg");
+      width: 130px;
+      height: 130px;
+      background: url("../img/menu.png");
       border-radius: 50%; }
   .about-info {
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
