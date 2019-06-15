@@ -9,7 +9,7 @@
 	<body>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
 		<script>
-let camera, scene, renderer, cube;
+let camera, scene, renderer, cube, listener, sound, audioLoader;
 
 function init() {
 	// Init scene
@@ -51,6 +51,23 @@ function init() {
 
 	// Position camera
 	camera.position.z = 5;
+		
+	// create an AudioListener and add it to the camera
+	var listener = new THREE.AudioListener();
+	camera.add( listener );
+
+	// create a global audio source
+	var sound = new THREE.Audio( listener );
+
+	// load a sound and set it as the Audio object's buffer
+	var audioLoader = new THREE.AudioLoader();
+	audioLoader.load( 'img/hbd.mp3', function( buffer ) {
+		sound.setBuffer( buffer );
+		sound.setLoop( true );
+		sound.setVolume( 0.5 );
+		sound.play();
+	});
+
 }
 
 // Draw the scene every time the screen is refreshed
@@ -62,6 +79,7 @@ function animate() {
 	cube.rotation.y += 0.01;
 
 	renderer.render(scene, camera);
+	
 }
 
 function onWindowResize() {
@@ -74,6 +92,7 @@ function onWindowResize() {
 }
 
 window.addEventListener('resize', onWindowResize, false);
+
 
 init();
 animate();
