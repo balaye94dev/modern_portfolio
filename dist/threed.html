@@ -18,13 +18,18 @@
 				z-index: 1;
 			}
 			#overlay > div > button {
-					height: 10vh;
-					width: 20vw;
+					height: 20vh;
+					width: 50vw;
 					background-color: pink;
 					color: #ffffff;
 					outline: 3px solid #ffffff;
 					cursor: pointer;
-					font-size: 18;
+					font-size: 36;
+					font-weight: 100;
+					display: block;
+					padding: 0.5rem 1rem;
+					border: 0;
+					margin-bottom: 0.3rem;
 				
 				}
 		</style>
@@ -100,7 +105,7 @@ function init() {
 	audioLoader.load( 'img/hbd.mp3', function( buffer ) {
 		sound.setBuffer( buffer );
 		sound.setLoop( true );
-		sound.setVolume( 0.5 );
+		sound.setVolume( 0.8 );
 		sound.play();
 	});
 
