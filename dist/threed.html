@@ -4,14 +4,50 @@
 		<style>
 			body { margin: 0; }
 			canvas { width: 100%; height: 100% }
+			#overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				opacity: 1;
+				background-color: #000000;
+				z-index: 1;
+			}
+			#overlay > div > button {
+					height: 40px;
+					width: 100px;
+					background-color: pink;
+					color: #ffffff;
+					outline: 3px solid #ffffff;
+					cursor: pointer;
+					font-size: 18;
+				
+				}
 		</style>
 	</head>
 	<body>
+		<div id="overlay">
+				<div>
+						<button id="startButton">Click bae</button>
+						
+					</div>
+		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
 		<script>
 let camera, scene, renderer, cube, listener, sound, audioLoader;
 
+
+var startButton = document.getElementById("startButton");
+
+startButton.addEventListener('click', init)
+
 function init() {
+	var overlay = document.getElementById("overlay");
+	overlay.remove();
 	// Init scene
 	scene = new THREE.Scene();
 
