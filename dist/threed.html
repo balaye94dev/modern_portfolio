@@ -12,8 +12,7 @@
 			height: 100%
 		}
 
-		#overlay,
-		#overlay2 {
+		#overlay {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -40,7 +39,6 @@
 			color: #ffffff;
 			cursor: pointer;
 			font-size: 5rem;
-			font-weight: 100;
 			display: block;
 			align-content: center;
 
@@ -50,11 +48,9 @@
 		#overlay>div>p {
 			color: #777777;
 			font-size: 3rem;
-			padding-top: 10vh;
-		}
-
-		#overlay2 {
-			visibility: hidden;
+			padding-top: 20vh;
+			align-content: center;
+			text-align: center;
 		}
 	</style>
 </head>
@@ -62,15 +58,10 @@
 <body>
 	<div id="overlay">
 		<div>
-			<button id="startButton">Click, girl</button>
+			<button id="startButton">Click</button>
 			<p>Powered by BalayePro</p>
 		</div>
 	</div>
-	<div id="overlay2">
-		<div>
-			<h2 id="happybd">Happy Birthday Girl</h2>
-			<p>Powered by BalayePro</p>
-		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
 	<script>
