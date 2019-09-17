@@ -106,7 +106,7 @@
 			//const material = new THREE.MeshBasicMaterial({ color: 0x0000ff });
 
 			// Add texture - 
-			const texture = new THREE.TextureLoader().load('./img/senegal_drapeau.jpeg');
+			const texture = new THREE.TextureLoader().load('./img/diallo.jpg');
 
 			// Create material with texture
 			const material = new THREE.MeshBasicMaterial({ map: texture });
@@ -128,7 +128,7 @@
 
 			// load a sound and set it as the Audio object's buffer
 			var audioLoader = new THREE.AudioLoader();
-			audioLoader.load('img/you_gainde.mp4', function (buffer) {
+			audioLoader.load('./img/happy_birthday_song_mp3_48174.mp3', function (buffer) {
 				sound.setBuffer(buffer);
 				sound.setLoop(true);
 				sound.setVolume(0.8);
