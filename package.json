@@ -9,5 +9,8 @@
     "deploy": "gh-pages -d dist"
   },
   "author": "BA Abdoulaye",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "gh-pages": "^2.1.1"
+  }
 }
