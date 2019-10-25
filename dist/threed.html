@@ -1,102 +1,172 @@
 <html>
-	<head>
-		<title>My first three.js app</title>
-		<style>
-			body { margin: 0; }
-			canvas { width: 100%; height: 100% }
-		</style>
-	</head>
-	<body>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
-		<script>
-let camera, scene, renderer, cube, listener, sound, audioLoader;
 
-function init() {
-	// Init scene
-	scene = new THREE.Scene();
+<head>
+	<title>My first three.js app</title>
+	<style>
+		body {
+			margin: 0;
+		}
 
-	// Init camera (PerspectiveCamera)
-	camera = new THREE.PerspectiveCamera(
-		75,
-		window.innerWidth / window.innerHeight,
-		0.1,
-		1000
-	);
+		canvas {
+			width: 100%;
+			height: 100%;
+			
+		}
 
-	// Init renderer
-	renderer = new THREE.WebGLRenderer({ antialias: true });
+		#overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 1;
+			background-color: #000000;
+			background-image: url('./img/senegal_big_drapeau.jpeg');
+			z-index: 1;
+		}
 
-	// Set size (whole window)
-	renderer.setSize(window.innerWidth, window.innerHeight);
+		#overlay>div {
+			text-align: center;
+		}
 
-	// Render to canvas element
-	document.body.appendChild(renderer.domElement);
-
-	// Init BoxGeometry object (rectangular cuboid)
-	const geometry = new THREE.BoxGeometry(3, 3, 3);
-
-	// Create material with color
-	//const material = new THREE.MeshBasicMaterial({ color: 0x0000ff });
-
-	// Add texture - 
-	 const texture = new THREE.TextureLoader().load('./img/timfa.jpg');
-
-	// Create material with texture
-	 const material = new THREE.MeshBasicMaterial({ map: texture });
-
-	// Create mesh with geo and material
-	cube = new THREE.Mesh(geometry, material);
-	// Add to scene
-	scene.add(cube);
-
-	// Position camera
-	camera.position.z = 5;
+		#overlay>div>button {
+			height: 15vh;
+			width: 45vw;
+			background-color: rgb(235, 53, 129);
+			border: 4px solid white;
+			border-radius: 25px;
+			color: #ffffff;
+			cursor: pointer;
+			font-size: 5rem;
+			display: block;
+			align-content: center;
 		
-	// create an AudioListener and add it to the camera
-	var listener = new THREE.AudioListener();
-	camera.add( listener );
 
-	// create a global audio source
-	var sound = new THREE.Audio( listener );
+		}
 
-	// load a sound and set it as the Audio object's buffer
-	var audioLoader = new THREE.AudioLoader();
-	audioLoader.load( 'img/hbd.mp3', function( buffer ) {
-		sound.setBuffer( buffer );
-		sound.setLoop( true );
-		sound.setVolume( 0.5 );
-		sound.play();
-	});
+		#overlay>div>p {
+			color: #777777;
+			font-size: 3rem;
+			padding-top: 60vh;
+			align-content: center;
+			text-align: center;
+		}
+	</style>
+</head>
 
-}
+<body>
+	<div id="overlay">
+		<div>
+			<button id="startButton">Click</button>
+		<!--	<p>Powered by BalayePro</p>   -->
+		</div> 
+	</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
+	<script>
+		let camera, scene, renderer, cube, listener, sound, audioLoader;
 
-// Draw the scene every time the screen is refreshed
-function animate() {
-	requestAnimationFrame(animate);
+		var startButton = document.getElementById("startButton");
+		startButton.addEventListener('click', init)
 
-	// Rotate cube (Change values to change speed)
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
+		function init() {
 
-	renderer.render(scene, camera);
-	
-}
+			//Remove Overlay
 
-function onWindowResize() {
-	// Camera frustum aspect ratio
-	camera.aspect = window.innerWidth / window.innerHeight;
-	// After making changes to aspect
-	camera.updateProjectionMatrix();
-	// Reset size
-	renderer.setSize(window.innerWidth, window.innerHeight);
-}
+			var overlay = document.getElementById("overlay");
+			overlay.remove();
 
-window.addEventListener('resize', onWindowResize, false);
+			// Init scene
+			scene = new THREE.Scene();
+
+			// Init camera (PerspectiveCamera)
+			camera = new THREE.PerspectiveCamera(
+				75,
+				window.innerWidth / window.innerHeight,
+				0.1,
+				1000
+			);
+
+			// Init renderer
+			renderer = new THREE.WebGLRenderer({ antialias: true });
+
+			// Set size (whole window)
+			renderer.setSize(window.innerWidth, window.innerHeight);
+
+			// Render to canvas element
+			document.body.appendChild(renderer.domElement);
+
+			// Init BoxGeometry object (rectangular cuboid)
+			const geometry = new THREE.BoxGeometry(3, 3, 3);
+
+			// Create material with color
+			//const material = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+
+			// Add texture - 
+			const texture = new THREE.TextureLoader().load('./img/diallo.jpg');
+
+			// Create material with texture
+			const material = new THREE.MeshBasicMaterial({ map: texture });
+
+			// Create mesh with geo and material
+			cube = new THREE.Mesh(geometry, material);
+			// Add to scene
+			scene.add(cube);
+
+			// Position camera
+			camera.position.z = 5;
+
+			// create an AudioListener and add it to the camera
+			var listener = new THREE.AudioListener();
+			camera.add(listener);
+
+			// create a global audio source
+			var sound = new THREE.Audio(listener);
+
+			// load a sound and set it as the Audio object's buffer
+			var audioLoader = new THREE.AudioLoader();
+			audioLoader.load('./img/happy_birthday_song_mp3_48174.mp3', function (buffer) {
+				sound.setBuffer(buffer);
+				sound.setLoop(true);
+				sound.setVolume(0.8);
+				sound.play();
+
+			})
+		}
 
 
-init();
-animate();
+		// Draw the scene every time the screen is refreshed
+		function animate() {
+			requestAnimationFrame(animate);
 
-		</script>
-	</body>
+			// Rotate cube (Change values to change speed)
+			cube.rotation.x += 0.01;
+			cube.rotation.y += 0.01;
+
+			renderer.render(scene, camera);
+		};
+
+
+
+		function onWindowResize() {
+			// Camera frustum aspect ratio
+			camera.aspect = window.innerWidth / window.innerHeight;
+			// After making changes to aspect
+			camera.updateProjectionMatrix();
+			// Reset size
+			renderer.setSize(window.innerWidth, window.innerHeight);
+		}
+
+		window.addEventListener('resize', onWindowResize, false);
+
+
+		//init();
+		animate();
+
+	</script>
+</body>
+
 </html>
