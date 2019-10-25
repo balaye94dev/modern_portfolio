@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My Moderne responsive portfolio",
   "main": "main.js",
-  "homepage": "https://balaye94dev.github.io/modern_portfolio/dist/index.html",
+  "homepage": "https://balaye94dev.github.io/modern_portfolio/index.html",
   "scripts": {
     "sass": "node-sass -w scss/ -o dist/css/ --recursive",
     "deploy": "gh-pages -d dist"
