@@ -55,7 +55,7 @@
     .menu-branding .portrait {
       width: 250px;
       height: 250px;
-      background: url("../img/layefatimabig.jpg");
+      background: url("../img/LAYE.jpg");
       border: solid 3px #1EA1F2;
       border-radius: 50%; }
   .menu .nav-item {
@@ -258,7 +258,7 @@ main {
     .menu-branding .portrait {
       width: 130px;
       height: 130px;
-      background: url("../img/layefatimasmall.jpg");
+      background: url("../img/LAYE.jpg");
       border-radius: 50%; }
   .about-info {
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
